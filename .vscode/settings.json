@@ -2,6 +2,9 @@
   "files.eol": "\n",
   "editor.renderWhitespace": "boundary",
 
+  "css.validate": false,
+  "scss.validate": false,
+
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "eslint.format.enable": true,
