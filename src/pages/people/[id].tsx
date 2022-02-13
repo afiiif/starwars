@@ -10,13 +10,7 @@ export default function PersonDetailPage({ id }: { id: string }) {
       id={id}
       gqlQuery={PERSON_DETAIL}
       gqlKey="person"
-    >
-      {(data) => (
-        <pre className="card overflow-auto">
-          {JSON.stringify(data, null, 2)}
-        </pre>
-      )}
-    </Detail>
+    />
   );
 }
 

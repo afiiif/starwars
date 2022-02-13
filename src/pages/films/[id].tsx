@@ -10,13 +10,7 @@ export default function FilmDetailPage({ id }: { id: string }) {
       id={id}
       gqlQuery={FILM_DETAIL}
       gqlKey="film"
-    >
-      {(data) => (
-        <pre className="card overflow-auto">
-          {JSON.stringify(data, null, 2)}
-        </pre>
-      )}
-    </Detail>
+    />
   );
 }
 

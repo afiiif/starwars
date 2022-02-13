@@ -10,13 +10,7 @@ export default function PlanetDetailPage({ id }: { id: string }) {
       id={id}
       gqlQuery={PLANET_DETAIL}
       gqlKey="planet"
-    >
-      {(data) => (
-        <pre className="card overflow-auto">
-          {JSON.stringify(data, null, 2)}
-        </pre>
-      )}
-    </Detail>
+    />
   );
 }
 

@@ -10,13 +10,7 @@ export default function StarshipDetailPage({ id }: { id: string }) {
       id={id}
       gqlQuery={STARSHIP_DETAIL}
       gqlKey="starship"
-    >
-      {(data) => (
-        <pre className="card overflow-auto">
-          {JSON.stringify(data, null, 2)}
-        </pre>
-      )}
-    </Detail>
+    />
   );
 }
 

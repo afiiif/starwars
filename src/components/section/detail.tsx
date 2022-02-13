@@ -1,18 +1,17 @@
 import { OperationVariables, TypedDocumentNode, useQuery } from '@apollo/client';
+import startCase from 'lodash/startCase';
 import Head from 'next/head';
-import { ReactNode } from 'react';
+import DetailItem from './detail-item';
 
 interface Props {
   id: string;
   icon: string;
   gqlQuery: TypedDocumentNode<any, OperationVariables>;
   gqlKey: string;
-  // eslint-disable-next-line no-unused-vars
-  children: (data: object) => ReactNode;
 }
 
 export default function Detail({
-  id, icon, gqlQuery, gqlKey, children,
+  id, icon, gqlQuery, gqlKey,
 }: Props) {
   const query = useQuery(gqlQuery, { variables: { id } });
   const data = query.data?.[gqlKey];
@@ -32,7 +31,14 @@ export default function Detail({
         <h1 className="pb-0">{title}</h1>
       </div>
 
-      {children(data)}
+      <section className="card space-y-4">
+        {Object.keys(data).filter((key) => key !== '__typename').map((key) => (
+          <div key={key}>
+            <div className="font-bold">{startCase(key)}</div>
+            <DetailItem data={data[key]} />
+          </div>
+        ))}
+      </section>
     </>
   );
 }

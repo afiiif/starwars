@@ -10,13 +10,7 @@ export default function SpeciesDetailPage({ id }: { id: string }) {
       id={id}
       gqlQuery={SPECIES_DETAIL}
       gqlKey="species"
-    >
-      {(data) => (
-        <pre className="card overflow-auto">
-          {JSON.stringify(data, null, 2)}
-        </pre>
-      )}
-    </Detail>
+    />
   );
 }
 
