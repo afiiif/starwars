@@ -24,7 +24,7 @@ export default function Nav() {
   const { pathname } = useRouter();
 
   return (
-    <div className="bg-black pt-5 pb-3 sticky top-0">
+    <div className="bg-black pt-5 pb-3 sticky top-0 md:px-4">
       <nav className="md:flex md:items-center max-w-4xl mx-auto">
         <Link href="/">
           <a aria-label="Home page" className="block p-2 text-center">
@@ -35,6 +35,7 @@ export default function Nav() {
                 width={732 * 0.4}
                 height={75 * 0.4}
                 quality={1}
+                priority
               />
             </div>
             <div className="hidden md:block">
@@ -44,6 +45,7 @@ export default function Nav() {
                 width={586 * 0.2}
                 height={254 * 0.2}
                 quality={1}
+                priority
               />
             </div>
           </a>

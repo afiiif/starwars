@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-black px-3 py-4">
+    <footer className="bg-black px-3 py-4 md:px-6">
       <div className="max-w-4xl mx-auto">
         Made by{' '}
         <a
