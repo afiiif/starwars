@@ -20,6 +20,20 @@ export const PLANET_DETAIL = gql`
   query Planet($id: ID!) {
     planet(id: $id) {
       name
+      diameter
+      rotationPeriod
+      orbitalPeriod
+      gravity
+      population
+      climates
+      terrains
+      surfaceWater
+      filmConnection {
+        films {
+          id
+          title
+        }
+      }
     }
   }
 `;

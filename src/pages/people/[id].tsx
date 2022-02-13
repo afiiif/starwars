@@ -1,15 +1,15 @@
 import { GetStaticPropsContext } from 'next';
 import Detail from '../../components/section/detail';
-import { PLANET_DETAIL } from '../../graphql/queries/planet';
+import { PERSON_DETAIL } from '../../graphql/queries/person';
 import { addApolloState, initializeApollo } from '../../lib/apollo';
 
-export default function PlanetDetailPage({ id }: { id: string }) {
+export default function PersonDetailPage({ id }: { id: string }) {
   return (
     <Detail
-      icon="🪐"
+      icon="👤"
       id={id}
-      gqlQuery={PLANET_DETAIL}
-      gqlKey="planet"
+      gqlQuery={PERSON_DETAIL}
+      gqlKey="person"
     >
       {(data) => (
         <pre className="card overflow-auto">
@@ -34,7 +34,7 @@ export async function getStaticProps(context: GetStaticPropsContext<{ id: string
     const apolloClient = initializeApollo();
 
     await apolloClient.query({
-      query: PLANET_DETAIL,
+      query: PERSON_DETAIL,
       variables: { id: params.id },
     });
 

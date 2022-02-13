@@ -1,15 +1,15 @@
 import List from '../../components/section/list';
-import { PLANET_LIST } from '../../graphql/queries/planet';
+import { STARSHIP_LIST } from '../../graphql/queries/starship';
 import { addApolloState, initializeApollo } from '../../lib/apollo';
 
-export default function PlanetListPage() {
+export default function StarshipListPage() {
   return (
     <List
-      title="Planets"
-      icon="🪐"
-      href="/planets"
-      gqlQuery={PLANET_LIST}
-      gqlKeys={['allPlanets', 'planets']}
+      title="Starships"
+      icon="🛸"
+      href="/starships"
+      gqlQuery={STARSHIP_LIST}
+      gqlKeys={['allStarships', 'starships']}
     />
   );
 }
@@ -18,7 +18,7 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo();
 
   await apolloClient.query({
-    query: PLANET_LIST,
+    query: STARSHIP_LIST,
   });
 
   return addApolloState(apolloClient, {

@@ -10,6 +10,9 @@
   h1 {
     @apply text-3xl font-bold pb-6;
   }
+  .h1 {
+    @apply text-3xl font-bold pb-6;
+  }
 }
 
 @layer components {

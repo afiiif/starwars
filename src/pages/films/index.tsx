@@ -1,15 +1,15 @@
 import List from '../../components/section/list';
-import { PLANET_LIST } from '../../graphql/queries/planet';
+import { FILM_LIST } from '../../graphql/queries/film';
 import { addApolloState, initializeApollo } from '../../lib/apollo';
 
-export default function PlanetListPage() {
+export default function FilmListPage() {
   return (
     <List
-      title="Planets"
-      icon="🪐"
-      href="/planets"
-      gqlQuery={PLANET_LIST}
-      gqlKeys={['allPlanets', 'planets']}
+      title="Films"
+      icon="🎬"
+      href="/films"
+      gqlQuery={FILM_LIST}
+      gqlKeys={['allFilms', 'films']}
     />
   );
 }
@@ -18,7 +18,7 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo();
 
   await apolloClient.query({
-    query: PLANET_LIST,
+    query: FILM_LIST,
   });
 
   return addApolloState(apolloClient, {
