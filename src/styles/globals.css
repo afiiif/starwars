@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-zinc-900 text-white text-sm;
+  }
+
+  h1 {
+    @apply text-3xl font-bold pb-6;
+  }
+}
+
+@layer components {
+  .card {
+    @apply block border border-yellow-400 p-4 rounded-md shadow-md shadow-yellow-400/10 mb-4;
+  }
+
+  a.card {
+    @apply hover:bg-yellow-50/10;
+  }
+}
