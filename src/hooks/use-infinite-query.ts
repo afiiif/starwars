@@ -5,19 +5,26 @@ interface PageInfo {
   endCursor: string;
 }
 
+interface Entry {
+  id: string;
+  name: string;
+  title?: string;
+}
+
 const useInfiniteQuery = (
   gqlQuery: TypedDocumentNode<any, OperationVariables>,
   [key, childKey]: [string, string],
 ) => {
   const query = useQuery(gqlQuery, { notifyOnNetworkStatusChange: true });
 
-  const { data, fetchMore } = query;
+  const data = query.data?.[key];
 
-  const { hasNextPage, endCursor } = (data?.[key].pageInfo as PageInfo) || {};
-  const entries: object[] = data?.[key][childKey] || [];
+  const { hasNextPage, endCursor } = (data.pageInfo as PageInfo) || {};
+  const totalEntries = data.totalCount;
+  const entries: Entry[] = data[childKey] || [];
 
   const fetchNextPage = () => {
-    fetchMore({
+    query.fetchMore({
       variables: { after: endCursor },
       updateQuery: (prevData, { fetchMoreResult }) => {
         const prevEntires = prevData[key][childKey];
@@ -38,6 +45,7 @@ const useInfiniteQuery = (
     hasNextPage,
     fetchNextPage,
     entries,
+    totalEntries,
   };
 };
 
