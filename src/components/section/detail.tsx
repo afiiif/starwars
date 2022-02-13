@@ -35,6 +35,7 @@ export default function Detail({
         {Object.keys(data).filter((key) => key !== '__typename').map((key) => (
           <div key={key}>
             <div className="font-bold">{startCase(key)}</div>
+            {/* @ts-ignore */}
             <DetailItem data={data[key]} />
           </div>
         ))}

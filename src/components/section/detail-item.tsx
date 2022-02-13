@@ -18,7 +18,7 @@ export default function DetailItem({ data }: Props) {
   }
 
   if (typeof data === 'string' || typeof data === 'number') {
-    return capitalize(data);
+    return capitalize(String(data));
   }
 
   if (Array.isArray(data)) {
@@ -26,6 +26,7 @@ export default function DetailItem({ data }: Props) {
   }
 
   const itemsKey = Object.keys(data).filter((key) => key !== '__typename')[0];
+  // @ts-ignore
   const listItems = data[itemsKey] as ListItem[];
 
   if (!listItems[0]) {
