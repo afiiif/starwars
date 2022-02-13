@@ -24,10 +24,10 @@ export default function Nav() {
   const { pathname } = useRouter();
 
   return (
-    <div className="bg-black pt-5 pb-3 sticky top-0 md:px-4">
+    <div className="bg-black pt-5 pb-3 sticky top-0 z-30 md:px-4">
       <nav className="md:flex md:items-center max-w-4xl mx-auto">
         <Link href="/">
-          <a aria-label="Home page" className="block p-2 text-center">
+          <a aria-label="Home page" className="block p-2 mb-1 text-center">
             <div className="md:hidden">
               <Image
                 src="/images/starwars-logo-horizontal.png"
@@ -51,7 +51,7 @@ export default function Nav() {
           </a>
         </Link>
 
-        <ul className="flex justify-around md:ml-auto text-sm md:text-lg">
+        <ul className="flex justify-around md:ml-auto text-xs md:text-lg">
           {LINKS.map(({ href, label }) => (
             <li key={href}>
               <Link href={href}>

@@ -24,11 +24,11 @@ const LINKS = [{
 
 export default function HomePage() {
   return (
-    <ul className="py-12">
+    <ul className="py-4 md:py-12">
       {LINKS.map(({ href, label, icon }) => (
         <li key={href}>
           <Link href={href}>
-            <a className="card text-4xl flex items-center space-x-5 p-8 mb-8">
+            <a className="card text-4xl flex items-center space-x-5 p-6 mb-6 md:p-8 md:mb-8">
               <div>{icon}</div>
               <div>{label}</div>
             </a>

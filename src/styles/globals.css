@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-zinc-900 text-white text-sm;
+    @apply bg-zinc-900 text-white text-sm relative min-h-screen;
   }
 
   h1 {
